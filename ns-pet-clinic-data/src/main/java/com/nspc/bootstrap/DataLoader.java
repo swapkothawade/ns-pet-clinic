@@ -41,7 +41,7 @@ public class DataLoader implements CommandLineRunner {
         ownerService.save(neeha);
 
         Owner abc = new Owner();
-        swara.setId(3L);
+        abc.setId(3L);
         abc.setFirstName("ABC");
         abc.setLastName("Patil");
         ownerService.save(abc);
