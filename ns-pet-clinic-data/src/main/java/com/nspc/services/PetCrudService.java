@@ -8,4 +8,5 @@ public interface PetCrudService<T,ID> {
     Set<T> findAll();
     void delete(T t);
     void deleteById(ID id);
+    int count();
 }

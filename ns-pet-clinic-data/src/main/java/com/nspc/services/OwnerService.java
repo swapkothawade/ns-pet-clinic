@@ -1,7 +1,7 @@
 package com.nspc.services;
 
-import com.nspc.model.Owner;
+import java.util.List;
 
-public interface OwnerService extends PetCrudService<Owner,Long>{
-    Owner findByLastname(String lastname);
+public interface OwnerService<Owner,Long> extends PetCrudService<Owner,Long> {
+    List<Owner> findByLastname(String lastname);
 }
