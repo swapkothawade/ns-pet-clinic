@@ -7,9 +7,6 @@ import com.nspc.model.Vet;
 import com.nspc.services.OwnerService;
 import com.nspc.services.PetService;
 import com.nspc.services.VetService;
-import com.nspc.services.map.OwnerServiceMap;
-import com.nspc.services.map.PetServiceMap;
-import com.nspc.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -21,12 +18,12 @@ public class DataLoader implements CommandLineRunner {
     private final PetService petService;
     private final VetService vetService;
 
-
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.petService = new PetServiceMap();
-        this.vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, PetService petService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.petService = petService;
+        this.vetService = vetService;
     }
+
 
     @Override
     public void run(String... args) throws Exception {

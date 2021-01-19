@@ -2,12 +2,13 @@ package com.nspc.services.map;
 
 import com.nspc.model.Owner;
 import com.nspc.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService<Owner,Long> {
 
     @Override
