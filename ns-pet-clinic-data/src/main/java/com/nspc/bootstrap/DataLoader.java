@@ -33,14 +33,14 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("------------------ Data Load Started  -----------------------------");
         Owner swara = new Owner();
         swara.setId(1L);
-        swara.setFirstName("Swara");
-        swara.setLastName("Kothawade");
+        swara.setFirstName("Swarup");
+        swara.setLastName("Kathewadi");
         ownerService.save(swara);
 
         Owner neeha = new Owner();
         neeha.setId(2L);
-        neeha.setFirstName("Neeha");
-        neeha.setLastName("Kothawade");
+        neeha.setFirstName("Neerav");
+        neeha.setLastName("Modi");
         ownerService.save(neeha);
 
         Owner abc = new Owner();
@@ -66,20 +66,20 @@ public class DataLoader implements CommandLineRunner {
         Vet v1 = new Vet();
 
         v1.setId(1L);
-        v1.setFirstName("Prashant");
-        v1.setLastName("Patil");
+        v1.setFirstName("Prashanth");
+        v1.setLastName("Vare");
         vetService.save(v1);
 
         Vet kedar = new Vet();
         kedar.setId(2L);
-        kedar.setFirstName("Kedar");
-        kedar.setLastName("Patil");
+        kedar.setFirstName("Krame");
+        kedar.setLastName("Jpe");
         vetService.save(kedar);
 
         Vet sachin = new Vet();
         sachin.setId(3L);
-        sachin.setFirstName("Sachin");
-        sachin.setLastName("Deore");
+        sachin.setFirstName("John");
+        sachin.setLastName("Snowe");
         vetService.save(sachin);
 
         System.out.println("Number of Vets Registered  " + vetService.count());
