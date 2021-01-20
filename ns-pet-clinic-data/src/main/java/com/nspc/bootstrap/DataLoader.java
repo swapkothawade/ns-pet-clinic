@@ -29,19 +29,19 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("------------------ Data Load Started  -----------------------------");
         Owner swara = new Owner();
-        swara.setId(1L);
+
         swara.setFirstName("Swarup");
         swara.setLastName("Kathewadi");
         ownerService.save(swara);
 
         Owner neeha = new Owner();
-        neeha.setId(2L);
+
         neeha.setFirstName("Neerav");
         neeha.setLastName("Modi");
         ownerService.save(neeha);
 
         Owner abc = new Owner();
-        abc.setId(3L);
+
         abc.setFirstName("ABC");
         abc.setLastName("Patil");
         ownerService.save(abc);
@@ -50,12 +50,12 @@ public class DataLoader implements CommandLineRunner {
 
         Pet p1 = new Pet();
         PetType petType = new PetType("Dog");
-        p1.setId(1L); p1.setBirthDate(LocalDate.now());p1.setOwner(swara);p1.setPetType(petType);
+        p1.setBirthDate(LocalDate.now());p1.setOwner(swara);p1.setPetType(petType);
         petService.save(p1);
 
         Pet p2 = new Pet();
         PetType cat = new PetType("Cat");
-        p2.setId(2L); p2.setBirthDate(LocalDate.now());p2.setOwner(neeha);p2.setPetType(cat);
+        p2.setBirthDate(LocalDate.now());p2.setOwner(neeha);p2.setPetType(cat);
         petService.save(p2);
 
         System.out.println("Number of Pets Registered  " + petService.count());
