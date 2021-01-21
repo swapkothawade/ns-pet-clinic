@@ -6,6 +6,7 @@ import com.nspc.model.PetType;
 import com.nspc.model.Vet;
 import com.nspc.services.OwnerService;
 import com.nspc.services.PetService;
+import com.nspc.services.PetTypeService;
 import com.nspc.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -17,19 +18,26 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final PetService petService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, PetService petService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, PetService petService, VetService vetService,PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.petService = petService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
 
     @Override
     public void run(String... args) throws Exception {
         System.out.println("------------------ Data Load Started  -----------------------------");
-        Owner swara = new Owner();
+        PetType dog = new PetType("Dog");
+        PetType savedDog = petTypeService.save(dog);
 
+        PetType cat = new PetType("Cat");
+        PetType savedCat= petTypeService.save(cat);
+
+        Owner swara = new Owner();
         swara.setFirstName("Swarup");
         swara.setLastName("Kathewadi");
         ownerService.save(swara);
@@ -49,13 +57,16 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("Number of owners Registered  " + ownerService.count());
 
         Pet p1 = new Pet();
-        PetType petType = new PetType("Dog");
-        p1.setBirthDate(LocalDate.now());p1.setOwner(swara);p1.setPetType(petType);
+
+        p1.setBirthDate(LocalDate.now());
+        p1.setOwner(swara);
+        p1.setPetType(savedDog);
         petService.save(p1);
 
         Pet p2 = new Pet();
-        PetType cat = new PetType("Cat");
-        p2.setBirthDate(LocalDate.now());p2.setOwner(neeha);p2.setPetType(cat);
+        p2.setBirthDate(LocalDate.now());
+        p2.setOwner(neeha);
+        p2.setPetType(savedCat);
         petService.save(p2);
 
         System.out.println("Number of Pets Registered  " + petService.count());
