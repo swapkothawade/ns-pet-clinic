@@ -37,37 +37,49 @@ public class DataLoader implements CommandLineRunner {
         PetType cat = new PetType("Cat");
         PetType savedCat= petTypeService.save(cat);
 
+
+        Pet p1 = new Pet();
+        p1.setBirthDate(LocalDate.now());
+       // p1.setOwner(swara);
+        p1.setPetType(savedDog);
+        petService.save(p1);
+
+        Pet p2 = new Pet();
+        p2.setBirthDate(LocalDate.now());
+        //p2.setOwner(neeha);
+        p2.setPetType(savedCat);
+        petService.save(p2);
+
+
+
         Owner swara = new Owner();
         swara.setFirstName("Swarup");
         swara.setLastName("Kathewadi");
+        swara.setAddress("123 JFK");
+        swara.setCity("Jersey");
+        swara.setTelephone("2012220909");
         ownerService.save(swara);
 
         Owner neeha = new Owner();
-
         neeha.setFirstName("Neerav");
         neeha.setLastName("Modi");
+        neeha.setAddress("1 Jeferson");
+        neeha.setCity("New York");
+        neeha.setTelephone("5510908");
+        neeha.getPets().add(p1);
         ownerService.save(neeha);
 
         Owner abc = new Owner();
 
         abc.setFirstName("ABC");
         abc.setLastName("Patil");
+        abc.setAddress("1 Madison Avenue");
+        abc.setCity("NewYork city");
         ownerService.save(abc);
 
         System.out.println("Number of owners Registered  " + ownerService.count());
 
-        Pet p1 = new Pet();
 
-        p1.setBirthDate(LocalDate.now());
-        p1.setOwner(swara);
-        p1.setPetType(savedDog);
-        petService.save(p1);
-
-        Pet p2 = new Pet();
-        p2.setBirthDate(LocalDate.now());
-        p2.setOwner(neeha);
-        p2.setPetType(savedCat);
-        petService.save(p2);
 
         System.out.println("Number of Pets Registered  " + petService.count());
 
